@@ -1,50 +1,58 @@
-import React, { useState, useCallback } from 'react';
-import { View, Text, StatusBar, TouchableWithoutFeedback } from 'react-native';
-import { Container } from 'native-base'
+import React, {useState, useCallback} from 'react';
+import {View, Text, StatusBar, TouchableOpacity} from 'react-native';
+import {Container} from 'native-base';
 import styles from './styles/SplashScreenStyles';
-import { useNavigation, useNavigationParam, useFocusEffect } from 'react-navigation-hooks'
+import {useNavigation, useFocusEffect} from 'react-navigation-hooks';
+import {useDispatch} from 'react-redux';
+import {SELECT_REDUCER} from '../../redux/types';
+import { Metrics } from '../../theme';
 
-const SplashScreen = (props) => {
-  const { navigate } = useNavigation();
+const SplashScreen = props => {
+  const {navigate} = useNavigation();
   const [isVisible, setVisible] = useState(false);
+  const dispatch = useDispatch();
 
-  useFocusEffect(useCallback(() => {
-    console.debug("screen takes focus");
-    setTimeout(() => setVisible(true), 1500)
-    return () => console.debug("screen loses focus");
-  }, []));
+  useFocusEffect(
+    useCallback(() => {
+      console.debug('screen takes focus');
+      setTimeout(() => setVisible(true), 1500);
+      return () => console.debug('screen loses focus');
+    }, []),
+  );
 
   const navigateHome = () => {
-    setTimeout(() => navigate('HomeScreen'), 1000)
-  }
+    setTimeout(() => navigate('HomeScreen'), 1000);
+  };
 
   const onPressRegularRedux = () => {
-    props.screenProps.setIsReduxSauce(false)
-    navigateHome()
-  }
+    dispatch({type: SELECT_REDUCER, isReduxSauce: false});
+    navigateHome();
+  };
 
   const onPressReduxSauce = () => {
-    props.screenProps.setIsReduxSauce(true)
-    navigateHome()
-  }
-  
+    dispatch({type: SELECT_REDUCER, isReduxSauce: true});
+    navigateHome();
+  };
+
   return (
     <Container style={styles.container}>
       <StatusBar barStyle="dark-content" />
-      {isVisible ?
-      (
+      {isVisible ? (
         <View>
-          <TouchableWithoutFeedback onPress={onPressRegularRedux}><Text>Regular Redux</Text></TouchableWithoutFeedback>
-          <TouchableWithoutFeedback onPress={onPressReduxSauce}><Text>ReduxSauce</Text></TouchableWithoutFeedback>
+          <TouchableOpacity
+            style={[styles.button, {marginBottom: Metrics.doubleBaseMargin}]}
+            onPress={onPressRegularRedux}>
+            <Text style={styles.buttonText}>Regular Redux</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={onPressReduxSauce}>
+            <Text style={styles.buttonText}>ReduxSauce</Text>
+          </TouchableOpacity>
         </View>
-      ) :
-      (
-      <Text style={styles.textStyle}>{`TODOS\nby\nNirav`}</Text>
-      )
-      }
-      
+      ) : (
+        <Text style={styles.textStyle}>{'TODOS\nby\nNirav'}</Text>
+      )}
     </Container>
   );
-}
+};
 
 export default SplashScreen;

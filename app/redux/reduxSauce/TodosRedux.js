@@ -5,9 +5,9 @@ import { onUpdateTodo, onDeleteTodo } from '../../services/todoService'
 /* ------------- Types and Action Creators ------------- */
 
 const { Types, Creators } = createActions({
-  addTodo: ['todo'],
-  updateTodo: ['todo'],
-  deleteTodo: ['id']
+  addReduxSauceTodo: ['todo'],
+  updateReduxSauceTodo: ['todo'],
+  deleteReduxSauceTodo: ['id']
 })
 
 export const TodosTypes = Types
@@ -16,33 +16,35 @@ export default Creators
 /* ------------- Initial State ------------- */
 
 export const INITIAL_STATE = Immutable({
-  todos: []
-})
-
+  todos: [],
+});
 
 /* ------------- Reducers ------------- */
 
-export const addTodo = (state, { todo }) => {
-  const todos = [...state.todos, todo]
-  state.merge({ todos })
-}
+export const addTodo = (state, {todo}) => {
+  const todos = [...state.todos, todo];
+  return state.merge({todos});
+};
 
-export const updateTodo = (state, { todo }) => {
-  const todos = [...state.todos]
-  if(todo) todos = onUpdateTodo(state.todos, todo)
-  state.merge({ todos })
-}
+export const updateTodo = (state, {todo}) => {
+  let todos = [...state.todos];
+  if (todo) {
+    todos = onUpdateTodo(state.todos, todo);
+    console.log("updateTodo", todo, todos)
+  }
+  return state.merge({todos});
+};
 
 // successful avatar lookup
 export const deleteTodo = (state, {id}) => {
-  const todos = onDeleteTodo(state.todos, id)
-  state.merge({ todos })
-}
+  const todos = onDeleteTodo(state.todos, id);
+  return state.merge({todos});
+};
 
 /* ------------- Hookup Reducers To Types ------------- */
 
 export const reducer = createReducer(INITIAL_STATE, {
-  [Types.ADD_TODO]: updateTodo,
-  [Types.UPDATE_TODO]: updateTodo,
-  [Types.DELETE_TODO]: deleteTodo,
-})
+  [Types.ADD_REDUX_SAUCE_TODO]: updateTodo,
+  [Types.UPDATE_REDUX_SAUCE_TODO]: updateTodo,
+  [Types.DELETE_REDUX_SAUCE_TODO]: deleteTodo,
+});

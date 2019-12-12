@@ -6,6 +6,7 @@ import {
   // moderateScale,
   scale
 } from './';
+import Fonts from './Fonts';
 
 // This file is for a reusable grouping of Theme items.
 // Similar to an XML fragment layout in Android
@@ -64,7 +65,16 @@ const ApplicationStyles = {
     },
     topRightBorderRadius: {
       borderTopRightRadius: Metrics.textFieldRadius
-    }
+    },
+    button: {
+      backgroundColor: Colors.primary,
+      borderRadius: Metrics.borderMedium,
+    },
+    buttonText: {
+      padding: Metrics.baseMargin,
+      color: Colors.white,
+      fontSize: Fonts.size.h3,
+    },
   },
   form: {
     textInput: {

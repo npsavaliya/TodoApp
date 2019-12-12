@@ -1,9 +1,9 @@
-import { StyleSheet } from 'react-native'
-import { Metrics, ApplicationStyles } from '../../theme';
+import {StyleSheet} from 'react-native'
+import {Metrics, ApplicationStyles, scale} from '../../theme';
 
 const styles = StyleSheet.create({
 	...ApplicationStyles.screen,
-  containerStyle: {
+	containerStyle: {
 		marginBottom: Metrics.baseMargin,
 		borderRadius: Metrics.borderMedium
 	},
@@ -12,7 +12,10 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		alignItems: 'center'
+	},
+	deleteButton: {
+		marginLeft: scale(20),
 	}
 })
 
-export default styles
+export default styles;

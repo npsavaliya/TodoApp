@@ -13,14 +13,14 @@ export const todosRedux = (state = INITIAL_STATE, action) => {
   switch(type){
     case ADD_TODO:
       todos = [...todos, todo]
-      return {...todos}
+      return {...state, todos};
     case UPDATE_TODO:
-      todos = onUpdateTodo(todos, todo)
-      return {...todos}
+      todos = onUpdateTodo(todos, todo);
+      return {...state, todos};
     case DELETE_TODO:
-      todos = onDeleteTodo(todos, id)
-      return {...todos}
+      todos = onDeleteTodo(todos, id);
+      return {...state, todos};
     default:
-      return state
+      return state;
   }
 }
