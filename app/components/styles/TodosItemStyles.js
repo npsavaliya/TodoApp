@@ -15,6 +15,9 @@ const styles = StyleSheet.create({
 	},
 	deleteButton: {
 		marginLeft: scale(20),
+	},
+	deleteText: {
+		margin: scale(10)
 	}
 })
 

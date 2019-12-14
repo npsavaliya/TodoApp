@@ -4,17 +4,21 @@ import {TouchableOpacity, Text} from 'react-native';
 import {Card, CardItem} from 'native-base';
 import styles from './styles/TodosItemStyles';
 
-const TodosItem = ({item, onRemove}) => {
+const TodosItem = ({item, onRemove, onItemPress}) => {
   const onPressRemove = () => {
     onRemove(item);
   };
 
+  const onPressItem = () => {
+    onItemPress(item);
+  };
+
   return (
     <Card style={styles.containerStyle}>
-      <CardItem button style={styles.cardItemStyle} onPress={this.onItemPress}>
+      <CardItem button style={styles.cardItemStyle} onPress={onPressItem}>
         <Text>{item.description}</Text>
         <TouchableOpacity style={styles.deleteButton} onPress={onPressRemove}>
-          <Text>X</Text>
+          <Text style={styles.deleteText}>X</Text>
         </TouchableOpacity>
       </CardItem>
     </Card>
@@ -23,6 +27,7 @@ const TodosItem = ({item, onRemove}) => {
 
 TodosItem.propTypes = {
   item: PropTypes.object,
+  onItemPress: PropTypes.func,
   onRemove: PropTypes.func,
 };
 
