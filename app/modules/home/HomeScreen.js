@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {View, TouchableOpacity, Text, FlatList} from 'react-native';
 import {Container} from 'native-base';
 import styles from './styles/HomeScreenStyle';
@@ -14,7 +14,6 @@ import {
 } from '../../redux/types';
 import {getNewTodo} from '../../services/todoService';
 import TodosItem from '../../components/TodosItem';
-import {Metrics} from '../../theme';
 
 const HomeScreen = (props) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -65,9 +64,7 @@ const HomeScreen = (props) => {
   return (
     <Container>
       <CustomHeader title={Strings.todos} />
-      <TouchableOpacity
-        style={[styles.button, {width: 150, margin: Metrics.doubleBaseMargin}]}
-        onPress={onPressAddTodo}>
+      <TouchableOpacity style={styles.button} onPress={onPressAddTodo}>
         <Text style={styles.buttonText}>{Strings.addTodo}</Text>
       </TouchableOpacity>
       <View style={styles.todosContainer}>

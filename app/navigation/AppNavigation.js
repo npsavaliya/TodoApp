@@ -1,16 +1,16 @@
-import { createAppContainer, createSwitchNavigator } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
+import {createAppContainer} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
 import HomeScreen from '../modules/home/HomeScreen';
 import SplashScreen from '../screens/splash/SplashScreen';
 
 const HomeStack = createStackNavigator(
   {
-    HomeScreen: { screen: HomeScreen }
+    HomeScreen: {screen: HomeScreen},
   },
   {
     // Default config for all screens
     headerMode: 'none',
-    initialRouteName: 'HomeScreen'
+    initialRouteName: 'HomeScreen',
   }
 );
 
@@ -18,7 +18,7 @@ const HomeStack = createStackNavigator(
 const PrimaryNav = createStackNavigator(
   {
     SplashScreen,
-    HomeStack
+    HomeStack,
   },
   {
     // Default config for all screens
@@ -26,7 +26,7 @@ const PrimaryNav = createStackNavigator(
     initialRouteName: 'SplashScreen',
     navigationOptions: {
       //   headerStyle: styles.header
-    }
+    },
   }
 );
 

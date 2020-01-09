@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
-import { Colors, scale, verticalScale, Fonts } from '../../theme';
+import {StyleSheet} from 'react-native';
+import {Colors, scale, verticalScale, Fonts} from '../../theme';
 
 const styles = StyleSheet.create({
   buttonTouchable: {
@@ -8,13 +8,13 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primary,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 20
+    borderRadius: 20,
   },
   buttonText: {
     color: Colors.white,
     fontSize: Fonts.size.label,
-    fontWeight: '500'
-  }
+    fontWeight: '500',
+  },
 });
 
 export default styles;

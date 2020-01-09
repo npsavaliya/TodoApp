@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
-import React, { forwardRef } from 'react';
-import { Image, Text, TextInput, View } from 'react-native';
-import { Icons, Colors } from '../theme';
+import React, {forwardRef} from 'react';
+import {Image, Text, TextInput, View} from 'react-native';
+import {Icons, Colors} from '../theme';
 import styles from './styles/CustomTextInputStyles';
 
 const ErrorView = message => (
@@ -20,7 +20,7 @@ const CustomTextInput = (
     returnKeyType = 'next',
     ...otherProps
   },
-  ref
+  ref,
 ) => (
   <View>
     <TextInput
@@ -40,7 +40,7 @@ CustomTextInput.propTypes = {
   error: PropTypes.string,
   placeholderTextColor: PropTypes.string,
   blurOnSubmit: PropTypes.bool,
-  returnKeyType: PropTypes.string
+  returnKeyType: PropTypes.string,
 };
 
 export default forwardRef(CustomTextInput);

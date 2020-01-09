@@ -1,18 +1,17 @@
-import { ADD_TODO, UPDATE_TODO, DELETE_TODO } from "../types"
-import { onUpdateTodo, onDeleteTodo } from "../../services/todoService"
-
+import {ADD_TODO, UPDATE_TODO, DELETE_TODO} from '../types';
+import {onUpdateTodo, onDeleteTodo} from '../../services/todoService';
 
 const INITIAL_STATE = {
-  todos: []
-}
+  todos: [],
+};
 
 export const todosRedux = (state = INITIAL_STATE, action) => {
-  const { type, todo, id } = action
-  let todos = [...state.todos]
-  
-  switch(type){
+  const {type, todo, id} = action;
+  let todos = [...state.todos];
+
+  switch (type) {
     case ADD_TODO:
-      todos = [...todos, todo]
+      todos = [...todos, todo];
       return {...state, todos};
     case UPDATE_TODO:
       todos = onUpdateTodo(todos, todo);
@@ -23,4 +22,4 @@ export const todosRedux = (state = INITIAL_STATE, action) => {
     default:
       return state;
   }
-}
+};

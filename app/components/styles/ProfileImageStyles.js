@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
-import { Colors, scale } from '../../theme';
+import {StyleSheet} from 'react-native';
+import {Colors, scale} from '../../theme';
 
 const styles = StyleSheet.create({
   profilePicContainer: {
@@ -7,13 +7,13 @@ const styles = StyleSheet.create({
     width: scale(120),
     borderRadius: scale(120) / 2,
     borderWidth: 1,
-    borderColor: Colors.primary
+    borderColor: Colors.primary,
   },
   profilePic: {
     height: scale(118),
     width: scale(118),
     borderRadius: scale(118) / 2,
-    resizeMode: 'contain'
+    resizeMode: 'contain',
   },
   profileEditContainer: {
     position: 'absolute',
@@ -23,14 +23,14 @@ const styles = StyleSheet.create({
     width: scale(40),
     borderRadius: scale(40) / 2,
     borderWidth: 2,
-    borderColor: Colors.white
+    borderColor: Colors.white,
   },
   profileEdit: {
     height: scale(37),
     width: scale(37),
     borderRadius: scale(37) / 2,
-    resizeMode: 'contain'
-  }
+    resizeMode: 'contain',
+  },
 });
 
 export default styles;

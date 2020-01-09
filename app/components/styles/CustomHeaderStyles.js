@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
-import { Colors, scale, verticalScale } from '../../theme';
+import {StyleSheet} from 'react-native';
+import {Colors, scale, verticalScale} from '../../theme';
 
 const styles = StyleSheet.create({
   headerContainer: {
@@ -8,25 +8,25 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primary,
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: scale(15)
+    paddingHorizontal: scale(15),
   },
   container: {
     flex: 1,
   },
   body: {
     flex: 3,
-    alignItems: 'center'
+    alignItems: 'center',
   },
   menuIcon: {
     height: verticalScale(30),
     width: scale(30),
-    resizeMode: 'contain'
+    resizeMode: 'contain',
   },
   backIcon: {
     height: verticalScale(20),
     width: scale(20),
-    resizeMode: 'contain'
-  }
+    resizeMode: 'contain',
+  },
 });
 
 export default styles;

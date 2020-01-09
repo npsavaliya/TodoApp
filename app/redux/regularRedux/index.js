@@ -1,6 +1,6 @@
 import {combineReducers, createStore} from 'redux';
-import {persistStore, persistReducer} from 'redux-persist'
-import ReduxPersist from '../../config/ReduxPersist'
+import {persistStore, persistReducer} from 'redux-persist';
+import ReduxPersist from '../../config/ReduxPersist';
 import {todosRedux} from './TodosRedux';
 import {selectReducerRedux} from '../selectReducer/SelectReducerRedux';
 

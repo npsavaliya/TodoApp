@@ -1,26 +1,35 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
-import { TouchableOpacity, View, TextInput, KeyboardAvoidingView, Text, Image } from 'react-native'
-import { Card, CardItem } from 'native-base'
-import styles from './styles/AddUpdateTodoModalStyles'
-import { Images } from '../theme';
-import { Strings } from '../constants';
+import {
+  TouchableOpacity,
+  View,
+  TextInput,
+  KeyboardAvoidingView,
+  Text,
+  Image,
+} from 'react-native';
+import {Card, CardItem} from 'native-base';
+import styles from './styles/AddUpdateTodoModalStyles';
+import {Images} from '../theme';
+import {Strings} from '../constants';
 
-export default AddUpdateTodoModal = ({ title, item, onPress, onClose }) => {
-
+const AddUpdateTodoModal = ({title, item, onPress, onClose}) => {
   const [description, setDescription] = useState(item.description);
 
   const onPressButton = () => {
-    onPress({ ...item, description })
-    onClose()
-  }
+    onPress({...item, description});
+    onClose();
+  };
 
   const onClearText = () => {
-    setDescription('')
-  }
+    setDescription('');
+  };
 
   return (
-    <KeyboardAvoidingView style={[styles.fullScreenModalContainerStyle]} behavior="padding" enabled>
+    <KeyboardAvoidingView
+      style={[styles.fullScreenModalContainerStyle]}
+      behavior="padding"
+      enabled>
       <Card style={styles.containerStyle}>
         <View style={styles.titleBoxViewStyle}>
           <View style={styles.titleViewStyle}>
@@ -28,8 +37,7 @@ export default AddUpdateTodoModal = ({ title, item, onPress, onClose }) => {
           </View>
           <TouchableOpacity
             style={styles.closeIconButtonStyle}
-            onPress={onClose}
-          >
+            onPress={onClose}>
             <View style={styles.closeIconViewStyle}>
               <Image
                 source={Images.closeIconBlue}
@@ -39,28 +47,34 @@ export default AddUpdateTodoModal = ({ title, item, onPress, onClose }) => {
           </TouchableOpacity>
         </View>
         <CardItem button style={styles.cardItemStyle}>
-          {/* <View style={styles.inputContainer}> */}
-            <TextInput
-              style={styles.inputContainer}
-              multiline
-              numberOfLines={4}
-              onChangeText={setDescription}
-              value={description}
-            />
-          {/* </View> */}
-          <TouchableOpacity onPress={onClearText}>
-            <Text>X</Text>
-          </TouchableOpacity>
+          <TextInput
+            style={styles.inputContainer}
+            multiline
+            numberOfLines={4}
+            onChangeText={setDescription}
+            value={description}
+          />
+          {description.length > 0 && (
+            <TouchableOpacity onPress={onClearText}>
+              <Text>X</Text>
+            </TouchableOpacity>
+          )}
         </CardItem>
-        {onPress && (<TouchableOpacity onPress={onPressButton}><Text>{Strings.done}</Text></TouchableOpacity>)}
+        {onPress && (
+          <TouchableOpacity onPress={onPressButton}>
+            <Text>{Strings.done}</Text>
+          </TouchableOpacity>
+        )}
       </Card>
     </KeyboardAvoidingView>
-  )
-}
+  );
+};
 
 AddUpdateTodoModal.propTypes = {
   title: PropTypes.string,
   item: PropTypes.object,
   onPress: PropTypes.func,
   onClose: PropTypes.func,
-}
+};
+
+export default AddUpdateTodoModal;

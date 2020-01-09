@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     fontFamily: Fonts.type.bold,
     fontWeight: 'bold',
     color: Colors.primary,
-  }
+  },
 });
 
 export default styles;

@@ -1,7 +1,7 @@
 import Colors from './Colors';
 import Fonts from './Fonts';
-import { Metrics, scale, moderateScale, verticalScale } from './Metrics';
-import { Images, Icons } from '../assets';
+import {Metrics, scale, moderateScale, verticalScale} from './Metrics';
+import {Images, Icons} from '../assets';
 import ApplicationStyles from './ApplicationStyles';
 
 export {
@@ -13,5 +13,5 @@ export {
   ApplicationStyles,
   scale,
   moderateScale,
-  verticalScale
+  verticalScale,
 };

@@ -5,7 +5,7 @@ import styles from './styles/SplashScreenStyles';
 import {useNavigation, useFocusEffect} from 'react-navigation-hooks';
 import {useDispatch} from 'react-redux';
 import {SELECT_REDUCER} from '../../redux/types';
-import { Metrics } from '../../theme';
+import {Metrics} from '../../theme';
 
 const SplashScreen = props => {
   const {navigate} = useNavigation();
